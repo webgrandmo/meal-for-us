@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
+import Header from './component/layout/Header';
+import Hero from './component/layout/Hero';
+import LinkComponent from './component/ui/Link';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+	return (
+		<Router>
+			<>
+				<Header />
+				<Hero
+					title='Meal For Us'
+					description='This is an app to help find a tasty meal for our family'>
+					<LinkComponent
+						href='/'
+						version='primary'>
+						Meal of the day
+					</LinkComponent>
+				</Hero>
+				<div className='container'>
+					<h1>My app</h1>
+				</div>
+			</>
+		</Router>
+	);
+};
 
 export default App;
